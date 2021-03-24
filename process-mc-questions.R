@@ -1,4 +1,3 @@
-library(tidyverse)
 
 process_a_questions <- function(results, answers) {
 
@@ -89,12 +88,14 @@ process_k_questions <- function(results, answers) {
 
 
 ## read data ----
-results <- readxl::read_excel("HS2019-1 Emot Ergebnisse.xlsx",
+library(tidyverse)
+
+results <- readxl::read_excel("data/HS2019-1 Emot Ergebnisse.xlsx",
                               sheet = "Antworten") %>%
     select(Matrikel, StudisID, Nachname, Vorname,
            starts_with("A_"), starts_with("K_"))
 
-answers <- readxl::read_excel("HS2019-1 Emot Ergebnisse.xlsx",
+answers <- readxl::read_excel("data/HS2019-1 Emot Ergebnisse.xlsx",
                               sheet = "Loesung") %>%
     select(starts_with("A_"), starts_with("K_"))
 
